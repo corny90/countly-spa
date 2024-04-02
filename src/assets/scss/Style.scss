@@ -1,0 +1,15 @@
+@import "Variables";
+
+html, body {
+  //background-color: $secondary;
+}
+
+.v-application {
+  &.v-theme--light {
+    //background-color: $secondary;
+  }
+}
+
+.events-overview {
+  background-color: $secondary;
+}
