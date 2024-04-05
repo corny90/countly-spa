@@ -11,5 +11,44 @@ html, body {
 }
 
 .events-overview {
-  background-color: $secondary;
+  //background-color: $secondary;
+}
+
+
+
+// GRADIENT TEXTS
+:root {
+  --gradient-text-positive: linear-gradient(
+    120deg,
+    color-mix(in srgb, rgb(var(--v-theme-primary)) 0%, #1DE9B6 100%),
+    color-mix(in srgb, rgb(var(--v-theme-primary)) 0%, #00B8D4 100%)
+  );
+
+  --gradient-text-negative: linear-gradient(
+                  120deg,
+                  color-mix(in srgb, rgb(var(--v-theme-primary)) 0%, #E65100 100%),
+                  color-mix(in srgb, rgb(var(--v-theme-primary)) 0%, #BF360C 100%)
+  );
+}
+
+.gradient-text-positive {
+  color: inherit;
+
+  @supports (--css: variables) {
+    background: var(--gradient-text-positive);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+
+.gradient-text-negative {
+  color: inherit;
+
+  @supports (--css: variables) {
+    background: var(--gradient-text-negative);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
 }
