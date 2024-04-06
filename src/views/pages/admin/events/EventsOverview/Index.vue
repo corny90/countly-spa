@@ -1,11 +1,62 @@
 <script>
   import CardEventSimple from "./CardEventSimple.vue";
   import CardEventWithTotal from "./CardEventWithTotal.vue";
+  import CardSectionTitle from "./CardSectionTitle.vue";
   export default {
     name: "EventsOverview",
     components: {
       CardEventSimple,
-      CardEventWithTotal
+      CardEventWithTotal,
+      CardSectionTitle
+    },
+    data () {
+      return {
+        cardEventSimple: [
+          { title: "Total Event Count", eventNumber: 349.260, percentageChange: 30.3 },
+          { title: "Events Per User", eventNumber: 247.9, percentageChange: 22.2 },
+          { title: "Events Per Session", eventNumber: 32.5, percentageChange: -4.5 }
+        ],
+        cardEventWithTotal: [
+          { title: "Total Event Count", eventNumber: 349.260, percentageChange: 30.3, percentageCounting: 94.3 },
+          { title: "Events Per User", eventNumber: 247.9, percentageChange: 22.2, percentageCounting: 5.1 },
+          { title: "Events Per Session", eventNumber: 32.5, percentageChange: -4.5, percentageCounting: 0.3 }
+        ],
+        interval: {},
+        value: 0,
+      }
+    },
+    beforeUnmount () {
+      this.interval.forEach(interval => clearTimeout(interval));
+    },
+    mounted () {
+      this.updateValue();
+    },
+    methods: {
+      updateValue() {
+        // Function to get a random interval between 1 second and 10 seconds
+        const getRandomInterval = () => Math.floor(Math.random() * 9000) + 1000;
+
+        // Update simple events with random intervals
+        this.cardEventSimple.forEach((item, index) => {
+          const updateFunction = () => {
+            item.percentageChange = parseFloat((Math.random() * 200 - 100).toFixed(1));
+            item.eventNumber = Math.floor(Math.random() * 10001) / 10;
+            this.interval[index] = setTimeout(updateFunction, getRandomInterval());
+          };
+          updateFunction();
+        });
+
+        // Update events with total with random intervals
+        this.cardEventWithTotal.forEach((item, index) => {
+          const updateFunction = () => {
+            item.percentageChange = parseFloat((Math.random() * 200 - 100).toFixed(1));
+            item.eventNumber = Math.floor(Math.random() * 10001) / 10;
+            item.percentageCounting = parseFloat((Math.random() * 100).toFixed(1));
+            this.interval[index] = setTimeout(updateFunction, getRandomInterval());
+          };
+          updateFunction();
+        });
+      }
     }
   }
 </script>
@@ -18,35 +69,15 @@
       <v-row no-gutters>
 
         <v-col cols="12" sm="12">
-          <v-card class="mt-5 elevation-0 bg-transparent">
-            <v-card-item class="pa-3">
-              <div class="text-h6 mb-1">Top Events By Count In The Last 30 Days</div>
-            </v-card-item>
-          </v-card>
+          <card-section-title title="Events Overview"/>
         </v-col>
 
-        <v-col cols="12" sm="4">
-          <card-event-simple title="Total Event Count" :event-number="349.260" :percentage-change="30.3"/>
+        <v-col cols="12" sm="4" v-for="(item, index) in cardEventSimple" :key="index">
+          <card-event-simple :title="item.title" :event-number="item.eventNumber" :percentage-change="item.percentageChange"/>
         </v-col>
 
-        <v-col cols="12" sm="4">
-          <card-event-simple title="Events Per User" :event-number="247.9" :percentage-change="22.2"/>
-        </v-col>
-
-        <v-col cols="12" sm="4">
-          <card-event-simple title="Events Per Session" :event-number="32.5" :percentage-change="-4.5"/>
-        </v-col>
-
-        <v-col cols="12" sm="4">
-          <card-event-with-total title="Total Event Count" :event-number="349.260" :percentage-change="30.3" :percentage-counting="94.3"/>
-        </v-col>
-
-        <v-col cols="12" sm="4">
-          <card-event-with-total title="Events Per User" :event-number="247.9" :percentage-change="22.2" :percentage-counting="5.1"/>
-        </v-col>
-
-        <v-col cols="12" sm="4">
-          <card-event-with-total title="Events Per Session" :event-number="32.5" :percentage-change="-4.5" :percentage-counting="0.3"/>
+        <v-col cols="12" sm="4" v-for="(item, index) in cardEventWithTotal" :key="index">
+          <card-event-with-total :title="item.title" :event-number="item.eventNumber" :percentage-change="item.percentageChange" :percentage-counting="item.percentageCounting"/>
         </v-col>
 
       </v-row>

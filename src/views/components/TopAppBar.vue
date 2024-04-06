@@ -5,7 +5,7 @@
 </script>
 
 <template>
-  <v-app-bar :elevation="2" class="pl-3 pr-3">
+  <v-app-bar :elevation="2" class="pl-3 pr-4">
     <v-app-bar-title>Events Overview</v-app-bar-title>
 
     <template v-slot:append>
