@@ -41,7 +41,7 @@
     <div class="d-flex align-center">
       <!-- ITEMS SETUP -->
       <v-responsive
-          class="mx-auto"
+          class="mx-auto d-sm-none d-md-flex"
           max-width="90"
       >
         <v-select
@@ -52,9 +52,9 @@
             hide-details="auto"
         ></v-select>
       </v-responsive>
-      <div class="text-subtitle-2 ml-4 font-weight-light">events per page ({{totalItems}} in total)</div>
+      <div class="text-subtitle-2 ml-4 font-weight-light d-sm-none d-md-flex">events per page ({{totalItems}} in total)</div>
 
-      <v-spacer/>
+      <v-spacer class="d-sm-none d-md-flex"/>
 
       <!-- PAGES SETUP -->
       <v-responsive class="mx-auto" max-width="90">

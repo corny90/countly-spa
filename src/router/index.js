@@ -11,10 +11,7 @@ const router = createRouter({
         redirect: '/events/overview',
     },
     admin,
-  ],
-  // scrollBehavior () {
-  //   return { x: 0, y: 0 }
-  // }
+  ]
 })
 
 export default router

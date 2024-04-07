@@ -31,7 +31,7 @@
 </script>
 
 <template>
-  <v-card class="card-event-with-total ma-3 pa-5 elevation-3 rounded-lg">
+  <v-card class="ma-3 pa-5 elevation-3 rounded-lg shadow-light">
 
     <v-data-table
         :headers="headers"

@@ -19,7 +19,7 @@
 </script>
 
 <template>
-  <v-card class="card-event-simple ma-3 pa-5 elevation-3 rounded-lg">
+  <v-card class="card-event-simple ma-3 pa-5 elevation-3 rounded-lg shadow-light">
 
     <v-sheet class="bg-transparent d-flex align-center">
       <v-card-item class="pa-0">
@@ -34,16 +34,16 @@
       <v-sheet class="bg-transparent d-flex align-center">
         <v-icon v-if="percentageChange > 0" style="font-size: 35px;" class="gradient-text-positive" icon="mdi-arrow-up-circle" size="x-small"></v-icon>
         <v-icon v-else style="font-size: 35px;" class="gradient-text-negative" icon="mdi-arrow-down-circle" size="x-small"></v-icon>
-        <span v-if="percentageChange > 0" class="text-h4 ml-2 font-weight-bold gradient-text-positive">{{ percentageChange }}</span>
-        <span v-else class="text-h4 ml-2 font-weight-bold gradient-text-negative">{{ percentageChange }}</span>
+        <span v-if="percentageChange > 0" class="text-h4 ml-2 font-weight-bold gradient-text-positive">{{ percentageChange }}%</span>
+        <span v-else class="text-h4 ml-2 font-weight-bold gradient-text-negative">{{ percentageChange }}%</span>
       </v-sheet>
     </v-sheet>
 
   </v-card>
 </template>
 
-<style lang="scss">
-@import "src/assets/scss/Variables";
+<style lang="scss" scoped>
+  @import "../../assets/scss/Variables";
   .card-event-simple {
     .v-progress-circular {
       .v-progress-circular__content {
@@ -56,9 +56,6 @@
           font-size: 0.8rem;
         }
       }
-    }
-    &.elevation-3 {
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15) !important;
     }
   }
 </style>

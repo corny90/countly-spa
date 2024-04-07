@@ -6,7 +6,7 @@ export default {
         {
             path: '/events/overview',
             // component: () => import('../views/pages/admin/EventsOverview.vue'),
-            component: () => import(/* webpackChunkName: "group-events" */ '../views/pages/admin/events/EventsOverview/Index.vue')
+            component: () => import(/* webpackChunkName: "group-events" */ '../views/pages/admin/events/EventsOverview.vue')
         }
     ]
 }

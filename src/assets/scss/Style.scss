@@ -31,6 +31,7 @@ html, body {
   );
 }
 
+// GRADIENT TEXTS
 .gradient-text-positive {
   color: inherit;
 
@@ -51,4 +52,9 @@ html, body {
     -webkit-background-clip: text;
     background-clip: text;
   }
+}
+
+// CUSTOM CARD LIGHT SHADOWS
+.shadow-light {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15) !important;
 }
