@@ -1,6 +1,6 @@
 <script>
   export default {
-    name: "TopAppBar.vue"
+    name: "TopAppBar"
   }
 </script>
 

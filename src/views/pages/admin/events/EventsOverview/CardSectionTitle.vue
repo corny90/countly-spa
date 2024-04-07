@@ -13,7 +13,7 @@
 <template>
   <v-card class="mt-5 elevation-0 bg-transparent">
     <v-card-item class="pa-3">
-      <div class="text-h6 mb-1">{{ title }}</div>
+      <div class="text-h6 mb-1 text-grey-darken-1">{{ title }}</div>
     </v-card-item>
   </v-card>
 </template>

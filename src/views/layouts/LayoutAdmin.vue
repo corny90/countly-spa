@@ -1,6 +1,6 @@
 <script>
   import { defineComponent } from 'vue';
-  import TopAppBar from "@/views/components/TopAppBar.vue";
+  import TopAppBar from "@/views/global-components/TopAppBar.vue";
 
   export default defineComponent({
     name: "LayoutAdmin",

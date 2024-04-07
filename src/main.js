@@ -9,7 +9,9 @@ loadFonts()
 // SCSS
 import './plugins/themeStyle';
 
-createApp(App)
+import store from './store'
+
+createApp(App).use(store)
   .use(router)
   .use(vuetify)
   .mount('#app')
