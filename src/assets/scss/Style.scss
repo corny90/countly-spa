@@ -1,21 +1,5 @@
 @import "Variables";
 
-html, body {
-  //background-color: $secondary;
-}
-
-.v-application {
-  &.v-theme--light {
-    //background-color: $secondary;
-  }
-}
-
-.events-overview {
-  //background-color: $secondary;
-}
-
-
-
 // GRADIENT TEXTS
 :root {
   --gradient-text-positive: linear-gradient(
